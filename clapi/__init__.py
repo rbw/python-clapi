@@ -67,7 +67,7 @@ class Client(object):
         self._exec(option='host', argument='setparam', command=snmp_version_str)
 
     def apply_config(self, poller):
-        self._exec(option=None, argument='pollerreload', command=poller)
+        self._exec(option=None, argument='applycfg', command=poller)
 
     def set_hostgroups(self, hostname, hostgroups):
         hostgroups_str = '%s;%s' % (hostname, hostgroups)
