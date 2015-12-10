@@ -69,6 +69,10 @@ class Client(object):
     def apply_config(self, poller):
         self._exec(option=None, argument='pollerreload', command=poller)
 
+    def set_hostgroups(self, hostname, hostgroups):
+        hostgroups_str = '%s;%s' % (hostname, hostgroups)
+        self._exec(option='host', argument='sethostgroup', command=hostgroups_str)
+
     def exclude_services(self, hostname, services):
         for service in services:
             service_str = "%(hostname)s;%(service)s;activate;0" % (
