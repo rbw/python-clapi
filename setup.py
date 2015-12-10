@@ -6,7 +6,7 @@ except ImportError:
 setup(
     name='clapi',
     packages=['clapi'],
-    version='0.1.0',
+    version='0.1.2',
     description='CLAPI wrapper',
     install_requires=[],
     author='Robert Wikman',
@@ -14,7 +14,7 @@ setup(
     maintainer='Robert Wikman',
     maintainer_email='rbw@vault13.org',
     url='https://github.com/rbw0/python-clapi',
-    download_url='https://github.com/rbw0/python-clapi/tarball/0.1.0',
+    download_url='https://github.com/rbw0/python-clapi/tarball/0.1.2',
     keywords=['clapi', 'wrapper', 'Centreon'],
     classifiers=[],
     license='GPLv2',
