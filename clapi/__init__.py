@@ -66,8 +66,19 @@ class Client(object):
         self._exec(option='host', argument='setparam', command=snmp_community_str)
         self._exec(option='host', argument='setparam', command=snmp_version_str)
 
-    def apply_config(self, poller):
-        self._exec(option=None, argument='applycfg', command=poller)
+    def config_generate(self, poller):
+        self._exec(option=None, argument='pollergenerate', command=poller)
+
+    def config_move(self, poller):
+        self._exec(option=None, argument='cfgmove', command=poller)
+
+    def config_reload(self, poller):
+        self._exec(option=None, argument='pollerreload', command=poller)
+
+    def config_apply(self, poller):
+        self.config_generate(poller)
+        self.config_move(poller)
+        self.config_reload(poller)
 
     def set_hostgroups(self, hostname, hostgroups):
         hostgroups_str = '%s;%s' % (hostname, hostgroups)
