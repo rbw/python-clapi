@@ -60,6 +60,9 @@ class Client(object):
     def apply_template(self, hostname):
         self._exec(option='host', argument='applytpl', command=hostname)
 
+    def add_template(self, hostname, template):
+        self._exec(option='host', argument='addtemplate', command="%s;%s" % (hostname, template))
+
     def set_snmp(self, hostname, community):
         snmp_community_str = '%s;snmp_community;%s' % (hostname, community)
         snmp_version_str = '%s;snmp_version;%s' % (hostname, '2c')
@@ -95,12 +98,11 @@ class Client(object):
             self._exec(option='service', argument='setparam', command=service_str)
 
     def create_host(self, host):
-        host_str = "%(hostname)s;%(fqdn)s;%(ip)s;%(templates)s;%(poller)s;%(hostgroups)s" % (
+        host_str = "%(hostname)s;%(fqdn)s;%(ip)s;;%(poller)s;%(hostgroups)s" % (
             {
                 'hostname': host['hostname'],
                 'fqdn': host['fqdn'],
                 'ip': host['ip'],
-                'templates': host['templates'],
                 'poller': host['poller'],
                 'hostgroups': host['hostgroups']
             }
